@@ -1,0 +1,32 @@
+version: "3.1"
+
+tests:
+  - name: test_goodbye_rule
+    rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - name: test_greet_rule
+    rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - name: test_non_english_query
+    rule: handle non-english queries
+    steps:
+      - intent: out_of_scope_non_english
+      - action: utter_out_of_scope_non_english
+
+  - name: test_out_of_scope_query
+    rule: handle out of scope
+    steps:
+      - intent: out_of_scope_other
+      - action: utter_out_of_scope_other
+
+  - name: test_bot_challenge
+    rule: Respond to bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot

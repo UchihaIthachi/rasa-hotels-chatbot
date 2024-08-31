@@ -1,0 +1,36 @@
+tests:
+  - name: test_fallback_message
+    story: Fallback message story
+    steps:
+      - intent: nlu_fallback
+      - action: utter_fallback_message
+
+  - name: test_greet_happy_path
+    story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
+
+  - name: test_sad_path_1
+    story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
+
+  - name: test_sad_path_2
+    story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye

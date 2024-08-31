@@ -1,0 +1,138 @@
+version: "3.1"
+
+intents:
+  - greet
+  - affirm
+  - deny
+  - goodbye
+  - nlu_fallback
+  - bot_challenge
+
+  ############################## Mood #########################
+  - mood_great
+  - mood_unhappy
+
+  ############################## Hotels ########################
+  - ask_hotel_info
+  - ask_amenities
+  - check_availability
+  - ask_price
+  - ask_location
+  - ask_room_types
+
+  ############################## Out of scope ########################
+  - out_of_scope_non_english
+  - out_of_scope_other
+
+entities:
+  - hotel_name
+  - room_type
+  - date
+  - amenities
+  - price_range
+
+responses:
+  utter_greet:
+    - text: Hey! How can I help you?
+    - text: Hey there! How can I help you, today?
+    - text: Hey! How are you?
+    - text: "Hello! How can I assist you today?"
+
+  utter_hotel_info:
+    - text: "Sure, we have {hotel_name}. It's a great choice!"
+    - text: "We have {hotel_name}. It has a variety of rooms and amenities."
+
+  utter_ask_hotel:
+    - text: "Which hotel are you interested in?"
+
+  utter_ask_room_types:
+    - text: "We offer various room types at {hotel_name}, including deluxe, suite, and standard rooms."
+
+  utter_check_availability:
+    - text: "Checking availability for a {room_type} room at {hotel_name} on {date}..."
+
+  utter_check_amenities:
+    - text: "{hotel_name} offers the following amenities: {amenities}."
+
+  utter_ask_amenities:
+    - text: "Which hotel do you want to know the amenities for?"
+
+  utter_check_price:
+    - text: "The {room_type} room at {hotel_name} is available in your price range {price_range}."
+
+  utter_ask_location:
+    - text: "{hotel_name} is located in the city center, close to major attractions."
+
+  utter_goodbye:
+    - text: Ok then! Have a nice day!
+    - text: "Goodbye! Have a great day."
+
+  utter_deny_message:
+    - text: How can I help you?
+
+  utter_fallback_message:
+    - text: Sorry, I did not understand. Can you rephrase?
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_happy:
+    - text: "I'm glad to hear that!"
+    - text: "Great to know you're happy!"
+    - text: "That’s wonderful!"
+    - text: "Awesome!"
+
+  utter_cheer_up:
+    - text: "Cheer up! Everything will be okay."
+    - text: "Don't worry, things will get better."
+    - text: "Keep your chin up! Better days are coming."
+    - text: "Stay positive, things will improve."
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+    - text: "Is there anything else I can assist you with?"
+    - text: "Was this information useful?"
+    - text: "Hope that answered your question! Need any more help?"
+
+  utter_out_of_scope_non_english:
+    - text: "I only understand English, I'm sorry."
+  utter_out_of_scope_other:
+    - text: "I can't help you with that, I'm sorry."
+
+actions:
+  - action_check_availability
+  - action_check_amenities
+  - action_check_price
+  - action_cancel_booking
+  - action_ask_location
+
+slots:
+  hotel_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hotel_name
+
+  room_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room_type
+
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+
+  amenities:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: amenities
+
+  price_range:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: price_range

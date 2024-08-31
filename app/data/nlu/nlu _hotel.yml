@@ -1,0 +1,37 @@
+version: "3.1"
+
+nlu:
+  - intent: ask_hotel_info
+    examples: |
+      - Tell me about the hotels you have
+      - What hotels are available?
+      - Can you provide details about the hotels?
+
+  - intent: ask_amenities
+    examples: |
+      - What amenities are available at {hotel_name}?
+      - Tell me about the amenities at {hotel_name}
+      - What does {hotel_name} offer?
+
+  - intent: check_availability
+    examples: |
+      - Is there a room available at {hotel_name} on {date}?
+      - Check if there's a {room_type} room available at {hotel_name}
+
+  - intent: ask_price
+    examples: |
+      - How much does a {room_type} room at {hotel_name} cost?
+      - What's the price range for a room at {hotel_name}?
+      - Is the {room_type} room at {hotel_name} within {price_range}?
+
+  - intent: ask_location
+    examples: |
+      - Where is {hotel_name} located?
+      - What's the location of {hotel_name}?
+      - Can you tell me the address of {hotel_name}?
+
+  - intent: ask_room_types
+    examples: |
+      - What room types are available at {hotel_name}?
+      - Tell me about the rooms at {hotel_name}
+      - What kinds of rooms does {hotel_name} offer?

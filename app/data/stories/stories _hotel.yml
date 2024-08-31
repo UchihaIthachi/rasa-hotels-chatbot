@@ -1,0 +1,42 @@
+version: "3.1"
+
+stories:
+  - story: greet and ask for hotel info
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_hotel_info
+      - action: utter_ask_hotel
+
+  - story: check room availability
+    steps:
+      - intent: check_availability
+      - action: action_check_availability
+      - action: utter_check_availability
+
+  - story: ask for amenities
+    steps:
+      - intent: ask_amenities
+      - action: utter_ask_amenities
+      - action: action_check_amenities
+
+  - story: ask for price
+    steps:
+      - intent: ask_price
+      - action: action_check_price
+
+  - story: ask for location
+    steps:
+      - intent: ask_location
+      - action: action_ask_location
+      - action: utter_ask_location
+
+  - story: ask for room types
+    steps:
+      - intent: ask_room_types
+      - action: utter_ask_room_types
+
+  - story: user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye

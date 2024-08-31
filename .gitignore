@@ -1,0 +1,15 @@
+# Ignore models and database directories
+app/models
+/docker/db
+/venv
+/app/venv
+/app/models
+kubectl.exe
+
+# Ignore specific files and directories
+.rasa/
+.keras/
+__pycache__/
+.config/
+.env
+
